@@ -1,42 +1,76 @@
 
-let movies = [
-  { name: "Inception", rating: 5 },
-  { name: "The Matrix", rating: 4 },
-  { name: "The Godfather", rating: 5 },
-  { name: "The Shawshank Redemption", rating: 5 },
-  { name: "The Dark Knight", rating: 4 },
-  { name: "Pulp Fiction", rating: 4 },
-  { name: "The Lord of the Rings: The Return of the King", rating: 5 },
-];
 
-
-function displayMovies() {
-  const list = document.getElementById("movie-list");
-  list.innerHTML = ""; 
-
-  movies.forEach(movie => {
-    const li = document.createElement("li");
-    li.textContent = `${movie.name} - Rating: ${movie.rating}/5`;
-    list.appendChild(li);
+function populateSelect() {
+  const selectMovie = document.getElementById("movieSelector");
+  selectMovie.innerHTML = "";
+  movies.forEach((movie, index) => {
+    const option = document.createElement("option");
+    option.value = index;
+    option.textContent = movie.name;
+    selectMovie.appendChild(option);
   });
 }
 
 
-document.getElementById("movie-form").addEventListener("submit", function(event) {
-  event.preventDefault(); 
+function displayMovies() {
+  const list = document.getElementById("movies");
+  list.innerHTML = "";
+  movies.forEach(movie => {
+    const li = document.createElement("li");
+    li.textContent = `${movie.name} - Rating: ${movie.rating}/100`;
+    list.appendChild(li);
+  });
+}
 
-  const name = document.getElementById("movie-name").value;
-  const rating = document.getElementById("movie-rating").value;
+let selectedMovieIndex = 0;
+function selectMovie() {
+  selectedMovieIndex = document.getElementById("movieSelector").value;
+  displaySelectedMovie();
+}
 
-  
-  movies.push({ name: name, rating: parseInt(rating) });
-
- 
+function increaseRating() {
+  let movie = movies[selectedMovieIndex];
+  movie.rating++;
+  if (movie.rating > 100) movie.rating = 100;
   displayMovies();
+}
 
-  
-  document.getElementById("movie-form").reset();
+function decreaseRating() {
+  let movie = movies[selectedMovieIndex];
+  movie.rating--;
+  if (movie.rating < 1) movie.rating = 1;
+  displayMovies();
+}
+
+
+function addMovie(event) {
+  event.preventDefault();
+  const nameInput = document.getElementById("movie-name");
+  const ratingInput = document.getElementById("movie-rating");
+  const newMovie = {
+    name: nameInput.value.trim(),
+    rating: parseInt(ratingInput.value, 10),
+  };
+  movies.push(newMovie);
+  nameInput.value = "";
+  ratingInput.value = "";
+  displayMovies();
+}
+
+function displaySelectedMovie() {
+  const list = document.getElementById("movies");
+  list.innerHTML = "";
+  const movie = movies[selectedMovieIndex];
+  const li = document.createElement("li");
+  li.textContent = `${movie.name} - Rating: ${movie.rating}/100`;
+  list.appendChild(li);
+}
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  populateSelect();
+  displayMovies();
+  const movieform = document.getElementById("movie-form");
+  movieform.addEventListener("submit", addMovie);
 });
 
-
-displayMovies();

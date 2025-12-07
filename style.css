@@ -1,7 +1,17 @@
 
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: lightblue;
+  color: #333;
+}
+
+
 header {
   background-color: #4a90e2;
-  padding: 15px 0;
+  padding: 30px 0;
+  text-align: center;
 }
 
 nav {
@@ -26,45 +36,107 @@ nav {
   text-decoration: none;
   color: white;
   font-weight: bold;
-  font-size: 1.1em;
-  transition: color 0.3s ease;
+  font-size: 30px;
 }
 
 .nav-links a:hover {
   color: #ffdd57;
 }
 
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: lightblue; 
-  color: #333;
-}
-
-
-header {
-  background-color: grey; 
-  color: white;
-  text-align: center;
-  padding: 20px;
-  font-size: 1.8em;
-  font-weight: bold;
-}
-
 
 main {
   padding: 20px;
   background-color: lightslategray;
-  line-height: 1.6;
-  font-size: 1.1em;
+}
+
+main img {
+  display: block;
+  margin: 0 auto;
+}
+#movies li {
+  background: white;
+  margin: 6px 0;
+  padding: 8px 10px;
+  border-radius: 6px;
+  width: 100%;
 }
 
 
-footer {
-  background-color: green; 
-  color: #f4f4f9; 
-  text-align: center;
-  padding: 15px;
-  font-size: 0.9em;
+#movie-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
 }
+
+#movie-form input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  flex: 1;
+  min-width: 150px;
+}
+
+#movie-form button {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#movie-form button:hover {
+  background-color: #2980b9;
+}
+
+
+.container {
+  max-width: 700px;
+  margin: 50px auto;
+  background: darkgray;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px black;
+}
+
+#movieSelector,
+.container button {
+  background-color: #3498db;
+  color: #fff;
+  width: 100%;
+  display: flex;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  
+}
+
+#movieSelector:hover,
+.container button:hover {
+  background-color: #2980b9;
+}
+
+
+#rating-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0.5em 0;
+}
+
+
+#rating-buttons button {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+ 
+}
+
+

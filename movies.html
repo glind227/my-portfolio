@@ -1,34 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Movies</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Movies</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-  <nav>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="movies.html">Movies</a></li>
-      <li><a href="rateamovie.html">Rate a Movie</a></li>
-      <li><a href="ratings.html">Ratings</a></li>
-      <li><a href="toprated.html">Top Rated</a></li>
-    </ul>
-  </nav>
-</header>
-  <h1>Movie List</h1>
-  <ul id="movie-list"></ul>
+  <header>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="movies.html">Movies</a></li>
+        <li><a href="rateamovie.html">Rate a Movie</a></li>
+        <li><a href="ratings.html">Ratings</a></li>
+        <li><a href="toprated.html">Top Rated</a></li>
+      </ul>
+    </nav>
+  </header>
 
+  <main>
+    <div class="container">
+      <h1>🎬 Add a Movie</h1>
+    <form id="movie-form">
+      <input id="movie-name" type="text" placeholder="Movie name" required>
+      <input id="movie-rating" type="number" placeholder="Rating" min="1" max="100" required>
+      <button type="submit">Add Movie</button>
+    </form>
+    </div>
+    <div class="container">
+      <h1>🎬 Select a Movie</h1>
+        <select id="movieSelector" onchange="selectMovie()"></select>
+        <div id="rating-buttons">
+          <button onclick="increaseRating()">Increase Rating</button>
+          <button onclick="decreaseRating()">Decrease Rating</button>
+        </div>
+      <ul id="movies"></ul>
+    </div>
+
+  </main>
+
+  <script src="movieratings.js"></script>
   <script src="script.js"></script>
-  <script>
-    const list = document.getElementById("movie-list");
-    movies.forEach(movie => {
-      const li = document.createElement("li");
-      li.textContent = `${movie.name} - Rating: ${movie.rating}/5`;
-      list.appendChild(li);
-    });
-  </script>
 </body>
-</html>

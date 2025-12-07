@@ -18,23 +18,21 @@
     </ul>
   </nav>
 </header>
+
+<main>
+  <div class="container">
   <h1>🎬 Rate a Movie❗</h1>
+    <h2>Add a Movie</h2>
+      <form id="movie-form">
+        <input id="movie-name" type="text" placeholder="Movie name" required>
+        <input id="movie-rating" type="number" min="1" max="100" placeholder="Rating" required>
+        <button type="submit">Add Movie</button>
+      </form>
+      
+    </div>
+</main>
 
-  
- <form id="movie-form">
-    <label for="movie-name">Movie Name:</label>
-    <input type="text" id="movie-name" required>
-
-    <label for="movie-rating">Rating (1–5):</label>
-    <input type="number" id="movie-rating" min="1" max="5" required>
-
-   
-  </form>
-
-
-
-
-
+  <script src="movieratings.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
